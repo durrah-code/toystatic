@@ -13,7 +13,7 @@ public class Toytastic extends Application {
     public void start(Stage primaryStage) {
         // Create a WebView to display HTML content
         WebView webView = new WebView();
-        webView.getEngine().load(getClass().getResource("/index.html").toExternalForm()); // Load from resources
+        webView.getEngine().load(getClass().getResource("/src/index.html").toExternalForm()); // Load from resources
 
         // Create layout and scene
         StackPane root = new StackPane();
