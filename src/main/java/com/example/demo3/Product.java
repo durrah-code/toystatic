@@ -1,7 +1,6 @@
 package com.example.demo3;
 
-import javafx.application.Application;
-import javafx.stage.Stage;
+
 
 public class Product {
     private int id;
