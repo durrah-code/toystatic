@@ -11,48 +11,52 @@
   <header>
     <h1>Welcome to Toytastic - Children's Toy Store</h1>
   </header>
+
+  <!-- Product Section -->
   <main>
-    <div class="product-grid" id="product-grid">
-      <!-- Products will be dynamically injected here -->
+    <div class="product-grid">
+      <!-- Product 1 -->
+      <div class="product" data-id="1">
+        <img src="toy_car.jpg" alt="Toy Car">
+        <h2>Toy Car</h2>
+        <p>$10.99</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product" data-id="2">
+        <img src="lego_set.jpg" alt="Lego Set">
+        <h2>Lego Set</h2>
+        <p>$29.99</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product" data-id="3">
+        <img src="doll_house.jpg" alt="Doll House">
+        <h2>Doll House</h2>
+        <p>$19.99</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product" data-id="4">
+        <img src="teddy_bear.jpg" alt="Teddy Bear">
+        <h2>Teddy Bear</h2>
+        <p>$15.49</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
     </div>
   </main>
+
+  <!-- Cart Section -->
   <footer>
-    <button id="view-cart" onclick="viewCart()">View Cart</button>
+    <button id="view-cart">View Cart</button>
+    <div id="cart-items"></div> <!-- Dynamically filled with cart items -->
+    <p>Total: $<span id="total-price">0.00</span></p>
   </footer>
 </div>
 
-<script>
-  // Fetch products dynamically from Java backend or database
-  fetch('/products')  // Assuming this endpoint returns products as JSON
-          .then(response => response.json())
-          .then(products => {
-            const productGrid = document.getElementById('product-grid');
-            products.forEach(product => {
-              const productDiv = document.createElement('div');
-              productDiv.classList.add('product');
-              productDiv.innerHTML = `
-          <img src="${product.image}" alt="${product.name}">
-          <h2>${product.name}</h2>
-          <p>$${product.price}</p>
-          <button onclick="addToCart(${product.id})">Add to Cart</button>
-        `;
-              productGrid.appendChild(productDiv);
-            });
-          });
-
-  // Add to Cart functionality
-  function addToCart(productId) {
-    fetch('/add-to-cart', {
-      method: 'POST',
-      body: JSON.stringify({ productId }),
-      headers: { 'Content-Type': 'application/json' }
-    });
-  }
-
-  // View Cart functionality
-  function viewCart() {
-    window.location.href = '/cart';
-  }
-</script>
+<script src="cart.js"></script> <!-- Cart JavaScript for managing the cart -->
 </body>
 </html>

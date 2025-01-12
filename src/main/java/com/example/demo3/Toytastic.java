@@ -10,19 +10,19 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
-import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Toytastic extends Application {
 
-    private List<Product> products = new ArrayList<>();
-    private List<CartItem> cart = new ArrayList<>();
+    // Sample product data (replace with database or dynamic data)
+    String[] productNames = {"Toy Car", "Lego Set", "Doll House", "Teddy Bear"};
+    double[] productPrices = {10.99, 29.99, 19.99, 15.49};
+    String[] productImages = {"toy_car.jpg", "lego_set.jpg", "doll_house.jpg", "teddy_bear.jpg"};
+    List<CartItem> cart = new ArrayList<>();
 
     @Override
     public void start(Stage primaryStage) {
-        loadProducts();  // Load products from the database
-
         // Main layout: VBox for vertical stacking
         VBox mainLayout = new VBox(20);
         mainLayout.setPadding(new Insets(20));
@@ -34,12 +34,12 @@ public class Toytastic extends Application {
         // Product List (GridPane)
         GridPane productGrid = createProductGrid();
 
-        // Add to Cart Button
+        // View Cart Button
         Button cartButton = new Button("View Cart");
         cartButton.setStyle("-fx-font-size: 16px;");
         cartButton.setOnAction(e -> {
-            // Display cart contents (for now just print message)
-            System.out.println("Viewing cart...");
+            // Display cart contents here
+            showCart(primaryStage);
         });
 
         // Add elements to the main layout
@@ -52,25 +52,6 @@ public class Toytastic extends Application {
         primaryStage.show();
     }
 
-    // Method to load products from the database
-    private void loadProducts() {
-        String query = "SELECT * FROM products"; // Assuming your database has a table named 'products'
-        try (Connection connection = DatabaseConnection.getConnection();
-             Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery(query)) {
-
-            while (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                String name = resultSet.getString("name");
-                double price = resultSet.getDouble("price");
-                String image = resultSet.getString("image");
-                products.add(new Product(id, name, price, image));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
     // Method to create a Grid of Products
     private GridPane createProductGrid() {
         GridPane grid = new GridPane();
@@ -78,20 +59,20 @@ public class Toytastic extends Application {
         grid.setVgap(20); // Vertical gap between items
         grid.setPadding(new Insets(20));
 
-        for (int i = 0; i < products.size(); i++) {
+        for (int i = 0; i < productNames.length; i++) {
             // Create product components
             VBox productBox = new VBox(10);
             productBox.setPadding(new Insets(10));
 
             // Product Image
-            ImageView imageView = new ImageView(new Image("file:" + products.get(i).getImage()));
+            ImageView imageView = new ImageView(new Image("file:" + productImages[i]));
             imageView.setFitWidth(150);
             imageView.setFitHeight(150);
 
             // Product Name and Price
-            Label nameLabel = new Label(products.get(i).getName());
+            Label nameLabel = new Label(productNames[i]);
             nameLabel.setStyle("-fx-font-size: 16px; -fx-font-weight: bold;");
-            Label priceLabel = new Label("$" + products.get(i).getPrice());
+            Label priceLabel = new Label("$" + productPrices[i]);
             priceLabel.setStyle("-fx-font-size: 14px;");
 
             // Add to Cart Button
@@ -100,9 +81,7 @@ public class Toytastic extends Application {
             final int index = i; // Make the index variable effectively final
             addToCartButton.setOnAction(e -> {
                 // Add the product to the cart
-                Product product = products.get(index);
-                cart.add(new CartItem(product, 1));
-                System.out.println("Added " + product.getName() + " to cart.");
+                addToCart(productNames[index], productPrices[index], productImages[index]);
             });
 
             // Add components to the product box
@@ -113,6 +92,43 @@ public class Toytastic extends Application {
         }
 
         return grid;
+    }
+
+    // Add product to the cart
+    private void addToCart(String name, double price, String image) {
+        Product product = new Product(0, name, price, image);
+        CartItem cartItem = new CartItem(product, 1); // Add 1 item of this product
+        cart.add(cartItem);
+        System.out.println("Added " + name + " to cart.");
+    }
+
+    // Show Cart with added items
+    private void showCart(Stage primaryStage) {
+        // Display cart contents in a new window
+        VBox cartLayout = new VBox(20);
+        cartLayout.setPadding(new Insets(20));
+
+        Label cartTitle = new Label("Shopping Cart");
+        cartTitle.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
+
+        // List cart items
+        for (CartItem item : cart) {
+            Label cartItemLabel = new Label(item.getProduct().getName() + " x " + item.getQuantity() +
+                    " - $" + item.getProduct().getPrice());
+            cartLayout.getChildren().add(cartItemLabel);
+        }
+
+        // Checkout Button
+        Button checkoutButton = new Button("Checkout");
+        checkoutButton.setStyle("-fx-font-size: 16px;");
+        cartLayout.getChildren().add(checkoutButton);
+
+        // Scene and Stage setup for cart window
+        Scene cartScene = new Scene(cartLayout, 400, 300);
+        Stage cartStage = new Stage();
+        cartStage.setTitle("Cart - Toytastic");
+        cartStage.setScene(cartScene);
+        cartStage.show();
     }
 
     public static void main(String[] args) {
