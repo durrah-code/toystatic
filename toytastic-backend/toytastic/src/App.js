@@ -1,31 +1,22 @@
 import React, { useState } from "react";
 import './App.css'; // Import your CSS file
-
-// Sample data for products (this could be dynamically fetched from an API or a database)
-const products = [
-    { id: 1, name: "Toy Name 1", price: 19.99, image: "images/toy1.jpg" },
-    { id: 2, name: "Toy Name 2", price: 24.99, image: "images/toy2.jpg" },
-    { id: 3, name: "Toy Name 3", price: 14.99, image: "images/toy3.jpg" }
-];
+import toys from './toys'; // Import the toys data from toys.js
 
 const App = () => {
-    // Set up state to manage the cart and the products
+    // Set up state to manage the cart
     const [cart, setCart] = useState([]);
 
     // Function to add a product to the cart
     const addToCart = (product) => {
-        // Check if product is already in the cart
         const existingProduct = cart.find(item => item.id === product.id);
 
         if (existingProduct) {
-            // If the product exists, increase its quantity
             setCart(cart.map(item =>
                 item.id === product.id
                     ? { ...item, quantity: item.quantity + 1 }
                     : item
             ));
         } else {
-            // If the product doesn't exist, add it with quantity 1
             setCart([...cart, { ...product, quantity: 1 }]);
         }
     };
@@ -54,7 +45,7 @@ const App = () => {
             <section className="products">
                 <h2>Featured Products</h2>
                 <div className="product-list">
-                    {products.map(product => (
+                    {toys.map(product => (
                         <div key={product.id} className="product-item">
                             <img src={product.image} alt={product.name} />
                             <h3>{product.name}</h3>
@@ -92,7 +83,3 @@ const App = () => {
 };
 
 export default App;
-
-
-
-
