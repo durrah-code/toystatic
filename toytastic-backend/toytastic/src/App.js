@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import FeaturedProducts from './FeaturedProducts';  // Import FeaturedProducts
+import Categories from './Categories';  // Import Categories
 
 // App Component
 function App() {
@@ -18,8 +20,8 @@ function App() {
     return (
         <div>
             <HeroSection />
-            <Categories />
-            <FeaturedProducts products={products} addToCart={addToCart} />
+            <Categories />  {/* Use Categories Component */}
+            <FeaturedProducts products={products} addToCart={addToCart} />  {/* Use FeaturedProducts Component */}
             <Footer />
         </div>
     );
@@ -32,49 +34,6 @@ function HeroSection() {
             <h2>Welcome to Toytastic!</h2>
             <p>Find the perfect toy for your child</p>
             <button onClick={() => alert('Shopping Now!')}>Shop Now</button>
-        </section>
-    );
-}
-
-// Categories Section
-function Categories() {
-    return (
-        <section className="categories">
-            <h2>Shop by Category</h2>
-            <div className="category-list">
-                <div className="category">
-                    <img src="images/dolls.jpg" alt="Dolls" />
-                    <h3>Dolls</h3>
-                </div>
-                <div className="category">
-                    <img src="images/action-figures.jpg" alt="Action Figures" />
-                    <h3>Action Figures</h3>
-                </div>
-                <div className="category">
-                    <img src="images/educational-toys.jpg" alt="Educational Toys" />
-                    <h3>Educational Toys</h3>
-                </div>
-            </div>
-        </section>
-    );
-}
-
-// Featured Products Section
-function FeaturedProducts({ products, addToCart }) {
-    return (
-        <section className="featured-products">
-            <h2>Featured Products</h2>
-            <div className="product-list">
-                {products.map(product => (
-                    <div key={product.id} className="product-item">
-                        <img src={product.image} alt={product.name} />
-                        <h3>{product.name}</h3>
-                        <p>{product.description}</p>
-                        <p className="price">${product.price}</p>
-                        <button onClick={() => addToCart(product)}>Add to Cart</button>
-                    </div>
-                ))}
-            </div>
         </section>
     );
 }
