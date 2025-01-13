@@ -1,4 +1,3 @@
-// ProductList.js
 import React, { useState, useEffect } from 'react';
 
 const ProductList = () => {
@@ -48,7 +47,8 @@ const ProductList = () => {
                     ) : (
                         products.map(product => (
                             <div key={product.product_id} className="product">
-                                <img src="toy1.jpg" alt={product.name} /> {/* Add dynamic image handling */}
+                                {/* Dynamically set the product image URL */}
+                                <img src={`http://localhost:5000/images/${product.image}`} alt={product.name} />
                                 <h3>{product.name}</h3>
                                 <p>${product.price}</p>
                                 <a href={`/product/${product.product_id}`} className="btn">View Product</a>
@@ -75,4 +75,5 @@ const ProductList = () => {
 };
 
 export default ProductList;
+
 
