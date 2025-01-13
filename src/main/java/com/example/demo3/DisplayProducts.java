@@ -8,7 +8,7 @@ import java.sql.Statement;
 public class DisplayProducts {
     public static void main(String[] args) {
         // Database connection details
-        String jdbcURL = "jdbc:oracle:thin:@localhost:1521:XE"; // Replace with your database URL
+        String jdbcURL = "jdbc:oracle:thin:@localhost:1521:xe"; // Replace with your database URL
         String username = "system"; // Replace with your DB username
         String password = "durrah"; // Replace with your DB password
 
@@ -16,7 +16,7 @@ public class DisplayProducts {
             System.out.println("Connected to the database!");
 
             // SQL query to fetch product data
-            String sql = "SELECT * FROM products";
+            String sql = "SELECT * FROM Products";
 
             // Create a statement and execute the query
             Statement statement = connection.createStatement();
@@ -25,11 +25,15 @@ public class DisplayProducts {
             // Display data
             System.out.println("Product List:");
             while (resultSet.next()) {
-                int id = resultSet.getInt("id");
+                int productId = resultSet.getInt("product_id");
                 String name = resultSet.getString("name");
+                String description = resultSet.getString("description");
                 double price = resultSet.getDouble("price");
+                int stock = resultSet.getInt("stock");
+                String category = resultSet.getString("category");
 
-                System.out.printf("ID: %d, Name: %s, Price: %.2f\n", id, name, price);
+                System.out.printf("ID: %d, Name: %s, Description: %s, Price: %.2f, Stock: %d, Category: %s\n",
+                        productId, name, description, price, stock, category);
             }
         } catch (Exception e) {
             e.printStackTrace();
