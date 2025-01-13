@@ -6,16 +6,6 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-image: url('https://i.pinimg.com/736x/e7/1d/76/e71d76d135e9d8a8162aeff1bbdc7202.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed; /* Keeps the background fixed while scrolling */
-  background-repeat: no-repeat; /* Prevents tiling of the image */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
 }
 
 a {
@@ -38,9 +28,19 @@ ul {
 
 /* Header Styles */
 header {
-  background-color: #f7e8c3;
   color: white;
   padding: 20px 0;
+  background-image: url('https://i.pinimg.com/736x/8a/20/4a/8a204a6a60fdef24baa2f05b05ebd743.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Keeps the background fixed while scrolling */
+  background-repeat: no-repeat; /* Prevents tiling of the image */
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
 nav .logo h1 {
