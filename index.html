@@ -3,58 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Toytastic - Home</title>
-  <link rel="stylesheet" href="toytastic-backend/toytastic/src/App.css">
-  <!-- Add any additional CSS libraries like Bootstrap if needed -->
+  <title>Toytastic - Children's Toy Store</title>
+  <link rel="stylesheet" href="./App.css"> <!-- Link to external CSS file for styling -->
 </head>
-
 <body>
 
+<!-- Navigation Bar -->
 <header>
   <nav>
     <div class="logo">
-      <h1><a href="/">Toytastic</a></h1>
+      <h1>Toytastic</h1>
     </div>
-    <ul class="nav-links">
-      <li><a href="/shop">Shop</a></li>
-      <li><a href="/about">About Us</a></li>
-      <li><a href="/contact">Contact</a></li>
-      <li><a href="/login">Login</a></li>
-      <li><a href="/cart">Cart</a></li>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">Categories</a></li>
+      <li><a href="#">My Cart</a></li>
+      <li><a href="#">Login</a></li>
     </ul>
   </nav>
 </header>
 
-<!-- Hero Section -->
+<!-- Main Content Section -->
 <section class="hero">
-  <div class="hero-content">
-    <h2>Welcome to Toytastic!</h2>
-    <p>Discover the best toys for your little ones.</p>
-    <a href="/shop" class="btn">Shop Now</a>
+  <h2>Welcome to Toytastic!</h2>
+  <p>Find the perfect toy for your child</p>
+  <button>Shop Now</button>
+</section>
+
+<!-- Product Categories -->
+<section class="categories">
+  <h2>Shop by Category</h2>
+  <div class="category-list">
+    <div class="category">
+      <img src="images/dolls.jpg" alt="Dolls">
+      <h3>Dolls</h3>
+    </div>
+    <div class="category">
+      <img src="images/action-figures.jpg" alt="Action Figures">
+      <h3>Action Figures</h3>
+    </div>
+    <div class="category">
+      <img src="images/educational-toys.jpg" alt="Educational Toys">
+      <h3>Educational Toys</h3>
+    </div>
   </div>
 </section>
 
-<!-- Featured Products Section -->
+<!-- Featured Products -->
 <section class="featured-products">
-  <h2>Featured Toys</h2>
-  <div class="product-grid">
-    <!-- Product 1 -->
-    <div id="root"></div>
+  <h2>Featured Products</h2>
+  <div class="product-list">
+    <div class="product-item">
+      <img src="images/toy1.jpg" alt="Toy 1">
+      <h3>Toy Name</h3>
+      <p>Description of the toy.</p>
+      <p class="price">$19.99</p>
+      <button>Add to Cart</button>
+    </div>
+    <div class="product-item">
+      <img src="images/toy2.jpg" alt="Toy 2">
+      <h3>Toy Name</h3>
+      <p>Description of the toy.</p>
+      <p class="price">$24.99</p>
+      <button>Add to Cart</button>
+    </div>
+    <!-- More products here -->
+  </div>
 </section>
 
-<!-- Footer Section -->
+<!-- Footer -->
 <footer>
-  <div class="footer-content">
-    <p>&copy; 2025 Toytastic - All Rights Reserved</p>
-    <ul class="social-links">
-      <li><a href="https://facebook.com/Toytastic">Facebook</a></li>
-      <li><a href="https://instagram.com/Toytastic">Instagram</a></li>
-      <li><a href="https://twitter.com/Toytastic">Twitter</a></li>
-    </ul>
-    <p>Contact us: info@toytastic.com</p>
-  </div>
+  <p>&copy; 2025 Toytastic - All Rights Reserved</p>
+  <ul>
+    <li><a href="#">Privacy Policy</a></li>
+    <li><a href="#">Terms of Service</a></li>
+    <li><a href="#">Contact Us</a></li>
+  </ul>
 </footer>
-</body>
 
+</body>
 </html>
