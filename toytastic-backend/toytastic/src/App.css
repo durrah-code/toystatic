@@ -5,7 +5,6 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  min-height: 10vh;
 }
 
 a {
@@ -31,6 +30,7 @@ header {
   background-color: #ff6f61;
   color: white;
   padding: 20px 0;
+  min-height: 10vh;
 }
 
 nav .logo h1 {
@@ -55,10 +55,9 @@ nav .nav-links a {
   background-color: #f4f4f4;
   padding: 50px 0;
   text-align: center;
-  background-image: url('https://i.pinimg.com/736x/db/08/27/db0827dae5eed0c8832558cdbb7145b7.jpg');
+  background-image: url('https://childdevelopmentinfo.com/wp-content/uploads/2011/09/Untitled-design-2-mini.jpg');
   background-size: cover;
-  background-position: center;
-  background-attachment: fixed; /* Keeps the background fixed while scrolling */
+  background-position: center; /* Keeps the background fixed while scrolling */
   background-repeat: no-repeat; /* Prevents tiling of the image */
   min-height: 30vh;
   flex-direction: column;

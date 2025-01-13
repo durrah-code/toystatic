@@ -6,5 +6,11 @@ const pool = mysql.createPool({
     password: 'durrah',
     database: 'toytastic',
 });
-
+db.getConnection((err) => {
+    if (err) {
+        console.error('Error connecting to the database:', err);
+    } else {
+        console.log('Connected to the SQL database');
+    }
+});
 module.exports = pool.promise();
