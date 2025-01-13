@@ -1,17 +1,45 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+const express = require('express');
+const mysql = require('mysql');
+const cors = require('cors');
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const app = express();
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// Middleware
+app.use(cors());
+app.use(express.json());
+
+// Database connection
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'system',
+    password: 'durrah',
+    database: 'toytastic',
+});
+
+db.connect((err) => {
+    if (err) {
+        console.error('Database connection failed: ', err.stack);
+        return;
+    }
+    console.log('Connected to the database.');
+});
+
+// API route to fetch data
+app.get('/api/data', (req, res) => {
+    const query = 'SELECT * FROM your_table_name';
+    db.query(query, (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).json({ error: 'Failed to fetch data' });
+        } else {
+            res.json(results);
+        }
+    });
+});
+
+// Start the server
+const PORT = 5000;
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
+
