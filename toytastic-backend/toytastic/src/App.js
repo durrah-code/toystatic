@@ -1,85 +1,97 @@
-import React, { useState } from "react";
-import './App.css'; // Import your CSS file
-import toys from './toys'; // Import the toys data from toys.js
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
 
-const App = () => {
-    // Set up state to manage the cart
+// App Component
+function App() {
     const [cart, setCart] = useState([]);
 
-    // Function to add a product to the cart
+    const products = [
+        { id: 1, name: 'Toy 1', description: 'Description of Toy 1', price: 19.99, image: 'images/toy1.jpg' },
+        { id: 2, name: 'Toy 2', description: 'Description of Toy 2', price: 24.99, image: 'images/toy2.jpg' },
+    ];
+
     const addToCart = (product) => {
-        const existingProduct = cart.find(item => item.id === product.id);
-
-        if (existingProduct) {
-            setCart(cart.map(item =>
-                item.id === product.id
-                    ? { ...item, quantity: item.quantity + 1 }
-                    : item
-            ));
-        } else {
-            setCart([...cart, { ...product, quantity: 1 }]);
-        }
-    };
-
-    // Function to calculate the total price of the cart
-    const calculateTotal = () => {
-        return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
-    };
-
-    // Function to remove a product from the cart
-    const removeFromCart = (productId) => {
-        setCart(cart.filter(item => item.id !== productId));
+        setCart([...cart, product]);
+        alert(`${product.name} has been added to the cart.`);
     };
 
     return (
-        <div className="App">
-            <header>
-                <h1>Toytastic</h1>
-                <div className="cart-info">
-                    <button onClick={() => alert(`Total Cart Value: $${calculateTotal()}`)}>
-                        View Cart ({cart.length} items)
-                    </button>
-                </div>
-            </header>
-
-            <section className="products">
-                <h2>Featured Products</h2>
-                <div className="product-list">
-                    {toys.map(product => (
-                        <div key={product.id} className="product-item">
-                            <img src={product.image} alt={product.name} />
-                            <h3>{product.name}</h3>
-                            <p>{product.description}</p>
-                            <p className="price">${product.price}</p>
-                            <button onClick={() => addToCart(product)}>Add to Cart</button>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            <section className="cart">
-                <h2>Your Cart</h2>
-                {cart.length === 0 ? (
-                    <p>Your cart is empty!</p>
-                ) : (
-                    <div className="cart-items">
-                        {cart.map(item => (
-                            <div key={item.id} className="cart-item">
-                                <p>{item.name} x {item.quantity}</p>
-                                <p>${(item.price * item.quantity).toFixed(2)}</p>
-                                <button onClick={() => removeFromCart(item.id)}>Remove</button>
-                            </div>
-                        ))}
-                    </div>
-                )}
-                {cart.length > 0 && (
-                    <div className="cart-total">
-                        <p>Total: ${calculateTotal()}</p>
-                    </div>
-                )}
-            </section>
+        <div>
+            <HeroSection />
+            <Categories />
+            <FeaturedProducts products={products} addToCart={addToCart} />
+            <Footer />
         </div>
     );
-};
+}
 
-export default App;
+// Hero Section
+function HeroSection() {
+    return (
+        <section className="hero">
+            <h2>Welcome to Toytastic!</h2>
+            <p>Find the perfect toy for your child</p>
+            <button onClick={() => alert('Shopping Now!')}>Shop Now</button>
+        </section>
+    );
+}
+
+// Categories Section
+function Categories() {
+    return (
+        <section className="categories">
+            <h2>Shop by Category</h2>
+            <div className="category-list">
+                <div className="category">
+                    <img src="images/dolls.jpg" alt="Dolls" />
+                    <h3>Dolls</h3>
+                </div>
+                <div className="category">
+                    <img src="images/action-figures.jpg" alt="Action Figures" />
+                    <h3>Action Figures</h3>
+                </div>
+                <div className="category">
+                    <img src="images/educational-toys.jpg" alt="Educational Toys" />
+                    <h3>Educational Toys</h3>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+// Featured Products Section
+function FeaturedProducts({ products, addToCart }) {
+    return (
+        <section className="featured-products">
+            <h2>Featured Products</h2>
+            <div className="product-list">
+                {products.map(product => (
+                    <div key={product.id} className="product-item">
+                        <img src={product.image} alt={product.name} />
+                        <h3>{product.name}</h3>
+                        <p>{product.description}</p>
+                        <p className="price">${product.price}</p>
+                        <button onClick={() => addToCart(product)}>Add to Cart</button>
+                    </div>
+                ))}
+            </div>
+        </section>
+    );
+}
+
+// Footer Section
+function Footer() {
+    return (
+        <footer>
+            <p>&copy; 2025 Toytastic - All Rights Reserved</p>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </footer>
+    );
+}
+
+// Rendering the App to the 'root' div
+ReactDOM.render(<App />, document.getElementById('root'));

@@ -3,12 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Toytastic</title>
-  <link rel="stylesheet" href=./App.css">
+  <title>Toytastic - Children's Toy Store</title>
+  <link rel="stylesheet" href="toytastic-backend/toytastic/src/App.css">
 </head>
 <body>
-<div id="root"></div> <!-- React mounts here -->
 
+<!-- Navigation Bar -->
+<header>
+  <nav>
+    <div class="logo">
+      <h1>Toytastic</h1>
+    </div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">Categories</a></li>
+      <li><a href="#">My Cart</a></li>
+      <li><a href="#">Login</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Main Content Section -->
+<section class="hero">
+  <h2>Welcome to Toytastic!</h2>
+  <p>Find the perfect toy for your child</p>
+  <button id="shopNowBtn">Shop Now</button>
+</section>
+
+<!-- Product Categories -->
+<section class="categories">
+  <h2>Shop by Category</h2>
+  <div class="category-list">
+    <div class="category">
+      <img src="images/dolls.jpg" alt="Dolls">
+      <h3>Dolls</h3>
+    </div>
+    <div class="category">
+      <img src="images/action-figures.jpg" alt="Action Figures">
+      <h3>Action Figures</h3>
+    </div>
+    <div class="category">
+      <img src="images/educational-toys.jpg" alt="Educational Toys">
+      <h3>Educational Toys</h3>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Products -->
+<section class="featured-products">
+  <h2>Featured Products</h2>
+  <div class="product-list" id="productList"></div>
+</section>
+
+<!-- Footer -->
 <footer>
   <p>&copy; 2025 Toytastic - All Rights Reserved</p>
   <ul>
@@ -17,5 +65,12 @@
     <li><a href="#">Contact Us</a></li>
   </ul>
 </footer>
+
+<!-- Connect with React App -->
+<div id="root"></div>
+
+<script src="app.js"></script>
+
 </body>
 </html>
+
