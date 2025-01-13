@@ -9,11 +9,10 @@ app.use(cors());
 // Your Product model (assuming you use Mongoose)
 const Product = require('./models/Product');
 
-// Fetch products from the database
+// Fetch products from the
 app.get('/api/products', async (req, res) => {
     try {
-        const products = await Product.find();  // Fetch all products from the database
-        res.json(products);  // Send the products as JSON response
+        const products = await Product.find();  // Fetch all products from the
     } catch (error) {
         res.status(500).json({ message: 'Error fetching products' });
     }

@@ -8,7 +8,7 @@ export const getProducts = () => api.get('/products');
 export const getProductById = (id) => api.get(`/products/${id}`);
 export const registerUser = (userData) => api.post('/register', userData);
 export const loginUser = (credentials) => api.post('/login', credentials);
-const db = require('./db'); // Import your database connection
+const db = require('./db'); // Import your  connection
 
 app.get('/api/products', (req, res) => {
     const query = 'SELECT * FROM products'; // Query to fetch data
