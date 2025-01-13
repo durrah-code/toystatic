@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
 import FeaturedProducts from './FeaturedProducts';  // Import FeaturedProducts
 import Categories from './Categories';  // Import Categories
+import "./App.css";
 
 // App Component
 function App() {
@@ -52,5 +52,4 @@ function Footer() {
     );
 }
 
-// Rendering the App to the 'root' div
-ReactDOM.render(<App />, document.getElementById('root'));
+export default App;
