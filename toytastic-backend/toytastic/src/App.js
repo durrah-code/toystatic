@@ -1,19 +1,18 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ProductList from './ProductList'; // Import your ProductList component
+import ToyList from './ToyList';
+import ToyForm from './ToyForm';
 
-const App = () => {
+function App() {
     return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<ProductList />} />
-                {/* You can add more routes like this for individual product pages */}
-                {/* Example: <Route path="/product/:id" element={<ProductDetails />} /> */}
-            </Routes>
-        </Router>
+        <div>
+            <h1>Toytastic</h1>
+            <ToyList />
+            <ToyForm />
+        </div>
     );
-};
+}
 
 export default App;
+
 
 
