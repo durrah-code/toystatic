@@ -1,5 +1,4 @@
-import React from "react";
-import "./Product.css"; // Import a CSS file for styling (optional)
+import React from "react"; // Import a CSS file for styling (optional)
 
 // Sample product data
 const products = [

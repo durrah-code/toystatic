@@ -1,3 +1,4 @@
+// src/components/FlashMessage.js
 import React, { useState, useEffect } from "react";
 
 const FlashMessage = ({ message, onClose }) => {
