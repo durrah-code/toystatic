@@ -10,15 +10,19 @@ function Layout() {
 
     const handleFlashClose = () => {
         dispatch(actions.setFlashMessage(null));
-    }
+    };
 
     return (
-        <>    <div style={{position: "fixed", width: "100%", top:0}}>
-            <Navbar></Navbar>
-        </div>
+        <>
+            <div style={{ position: "fixed", width: "100%", top: 0, zIndex: 1000 }}>
+                <Navbar />
+            </div>
+            {/* Flash Message */}
             {flashMessage && <FlashMessage message={flashMessage} onClose={handleFlashClose} />}
-            <div style={{marginTop:"100px"}}>
-                <Outlet></Outlet>
+
+            {/* Main content area */}
+            <div style={{ marginTop: "140px", padding: "20px" }}>
+                <Outlet /> {/* This is where the child routes will render */}
             </div>
         </>
     );
