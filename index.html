@@ -5,44 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Toytastic - Your Child's Favorite Toy Store</title>
   <link rel="stylesheet" href="Toytastic/client/src/styles.css">
-  <script defer src="Toytastic/client/src/store/index.js"></script>
 </head>
 <body>
-<div id="root"></div>
+<header>
+  <div class="logo">
+    <h1>Toytastic</h1>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#categories">Categories</a></li>
+      <li><a href="#offers">Offers</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section id="hero">
+    <h2>Welcome to Toytastic!</h2>
+    <p>Your one-stop shop for the most amazing toys for kids of all ages.</p>
+    <button onclick="window.location.href = '#categories'">Shop Now</button>
+  </section>
+  <div id="root"></div>
+</main>
+
+<footer>
+  <p>&copy; 2025 Toytastic. All Rights Reserved.</p>
+</footer>
+
+<!-- React and App.js -->
+<script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+<script src="Toytastic/client/src/App.js"></script>
 
 <script>
-  const App = () => (
-          <>
-            <header>
-              <div class="logo">
-                <h1>Toytastic</h1>
-              </div>
-              <nav>
-                <ul>
-                  <li><a href="#home">Home</a></li>
-                  <li><a href="#categories">Categories</a></li>
-                  <li><a href="#offers">Offers</a></li>
-                  <li><a href="#contact">Contact Us</a></li>
-                </ul>
-              </nav>
-            </header>
-
-            <main>
-              <section id="hero">
-                <h2>Welcome to Toytastic!</h2>
-                <p>Your one-stop shop for the most amazing toys for kids of all ages.</p>
-                <button onClick={() => window.location.href = '#categories'}>Shop Now</button>
-              </section>
-
-            </main>
-
-            <footer>
-              <p>&copy; 2025 Toytastic. All Rights Reserved.</p>
-            </footer>
-          </>
-  );
-
-  ReactDOM.render(<App />, document.getElementById('root'));
+  ReactDOM.render(React.createElement(App), document.getElementById('root'));
 </script>
 </body>
 </html>
