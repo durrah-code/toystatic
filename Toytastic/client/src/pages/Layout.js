@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import FlashMessage from "./components/FlashMessage";
+import Navbar from "./Navbar";
+import FlashMessage from "./FlashMessage";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../store";
 
