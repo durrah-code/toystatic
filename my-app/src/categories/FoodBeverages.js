@@ -1,5 +1,5 @@
 import React from "react";
-import video from "./video1.mp4";
+
 
 export const FoodBeverages = () => {
     return (
@@ -13,12 +13,6 @@ export const FoodBeverages = () => {
 
 
 
-            <div style={{textAlign: 'center', marginBottom: '30px'}}>
-                <h2>Watch: Explore Penang's Tourist Spots</h2>
-                <video width="750" height="500" controls>
-                    <source src={video} type="video/mp4"/>
-                </video>
-            </div>
 
             {/* Dynamic Content Section with Image-Text Pairs */}
             <div id="dynamic-content">
