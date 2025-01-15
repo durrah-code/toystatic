@@ -1,0 +1,500 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  background-image: url('https://wallpaperaccess.com/full/3405900.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Keeps the background fixed while scrolling */
+  background-repeat: no-repeat; /* Prevents tiling of the image */
+}
+
+
+/* Header */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+header {
+  color: white;
+  text-align: center;
+  font-size: calc(10px + 2vmin);
+  background-image: url('https://i.pinimg.com/736x/8a/20/4a/8a204a6a60fdef24baa2f05b05ebd743.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Keeps the background fixed while scrolling */
+  background-repeat: no-repeat; /* Prevents tiling of the image */
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  animation: changeBackground 15s ease-in-out infinite; /* Animation for changing backgrounds */
+}
+
+/* Gradient Overlay */
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Adds dark overlay */
+  z-index: 1; /* Ensures the overlay is beneath the text */
+}
+
+/* Header text */
+header h1.custom-font {
+  font-size: 52px;
+  font-family: 'Raleway', serif;
+  font-weight: bold;
+  color: #FFFFFF; /* White color for better contrast on the overlay */
+  margin-bottom: 10px;
+  z-index: 2; /* Ensures the header text stays on top of the overlay */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Adds a shadow for better readability */
+}
+
+/* Subheading text */
+header p {
+  font-size: 20px;
+  line-height: 0.8;
+  color: #FFFFFF; /* White for better contrast */
+  margin: 10px;
+  font-weight: bold;
+  z-index: 2; /* Ensures the paragraph stays on top */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); /* Adds a subtle shadow effect */
+}
+
+/* Animation for changing background images */
+@keyframes changeBackground {
+  0% {
+    background-image: url('https://i.pinimg.com/736x/37/5e/04/375e040e982083a2ec1f5d2ee36c928d.jpg');
+  }
+  33% {
+    background-image: url('https://www.jomjalan.com/wp-content/uploads/2016/12/penanghill-1.jpg');
+  }
+  66% {
+    background-image: url('https://heartpatrick.com/penang_bridge_aerial_photography/heartpatrick_street_aerial_drone_photography_penang_bridge13.jpg');
+  }
+  100% {
+    background-image: url('https://heartpatrick.com/penang10/heartpatrick_penang_pulau_pinang_georgetown_malaysia19.jpg');
+  }
+}
+
+
+
+/* Top Navigation Bar */
+nav {
+  position: fixed; /* Makes it stick at the top */
+  top: 0; /* Aligns it to the top of the viewport */
+  width: 100%; /* Makes it span the full width of the screen */
+  z-index: 1000; /* Keeps it above other content */
+  display: flex; /* Aligns navigation items horizontally */
+  justify-content: center; /* Centers the navigation items */
+  gap: 15px; /* Adds spacing between items */
+  padding: 10px 20px; /* Adds padding for better spacing */
+  background-image: url('https://wallpaperaccess.com/full/3405900.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Keeps the background fixed while scrolling */
+  background-repeat: no-repeat; /* Prevents tiling of the image */
+}
+
+/* Navigation Items */
+nav a {
+  text-decoration: underline; /* Adds underline to the text */
+  color: #000000;
+  font-weight: bold;
+  /*padding: 10px 15px;*/
+  transition: all 0.3s ease;
+  font-size: 24px;
+}
+
+nav button {
+  background-color: transparent; /* Removes the white background */
+  border: none; /* Removes the border if present */
+  color: #000000; /* Adjust the text color to contrast with the navbar background */
+  padding: 10px; /* Optional: Adjusts spacing */
+  cursor: pointer; /* Adds a pointer cursor */
+  text-decoration: underline; /* Adds underline to the text */
+}
+
+nav button:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Optional: Add a hover effect */
+}
+
+
+
+
+/* Responsive Navigation Blocks */
+@media (max-width: 768px) {
+  .nav-block {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-block {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+}
+
+
+
+
+
+/* Content Styling */
+h1 {
+  font-size: 24px;
+}
+
+
+/* Dynamic Content Styles */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+#dynamic-content {
+  margin: 40px auto;
+  max-width: 830px;
+  padding: 15px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.8s ease-out;
+
+}
+
+/* Image and Text Pairing */
+.image-text-pair {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  padding: 10px;
+  border-radius: 12px;
+  background-image: url('https://images.pexels.com/photos/10526919/pexels-photo-10526919.jpeg?auto=compress&cs=tinysrgb&w=600');
+  background-size: cover;
+  background-position: center;
+  color: #000000;
+  transition: all 0.3s ease;
+}
+
+.image-text-pair:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.image-text-pair img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.image-text-pair .text {
+  flex: 1;
+  font-size: 30px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.image-text-pair .text h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.image-text-pair + .image-text-pair {
+  border-top: 2px solid #ddd;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+/* Optional: Add styling to the content inside */
+.text p {
+  margin-bottom: 15px;
+  font-size: 25px;
+}
+
+#dynamic-content .heading {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+
+
+.about-us-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  text-align: center;
+}
+
+.about-us-container h1 {
+  font-size: 2.5em;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+.about-us-container p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #666;
+}
+
+.about-image {
+  display: flex;
+  align-items: center; /* Aligns text and image vertically */
+  justify-content: flex-start; /* Aligns items to the left */
+  gap: 20px;
+  margin-top: 40px;
+  text-align: left;
+}
+
+.about-image-img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.about-description {
+  max-width: 800px;
+  font-size: 1.1em;
+  color: #444;
+  text-align: left; /* Ensures text is aligned to the left */
+}
+
+.about-description h3 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 15px;
+  text-decoration: underline;
+}
+
+
+.about-description p {
+  font-size: 1.1em;
+  color: #666;
+  line-height: 1.6;
+}
+
+.news-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between; /* Ensures equal spacing between containers */
+  margin: 20px;
+}
+
+.news-container {
+  flex: 1 1 calc(45% - 20px); /* Two containers per row */
+  max-width: calc(45% - 20px); /* Adjust width to match */
+  background-color: #5a4b3b ;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box; /* Includes padding and border in width/height */
+}
+
+.news-container h2 {
+  font-size: 1.5em;
+  color: white;
+  margin-bottom: 15px;
+  text-align: center;
+  text-decoration: underline;
+  font-family: 'Noticia Text', serif;
+}
+
+.news-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.news-list li {
+  margin-bottom: 10px;
+}
+
+.news-list a {
+  text-decoration: none;
+  font-size: 1.1em;
+  color: white ;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.news-list a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+@media (min-width: 1200px) {
+  .news-container {
+    flex: 1 1 calc(30% - 20px); /* Three containers per row on larger screens */
+    max-width: calc(30% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .news-container {
+    flex: 1 1 100%; /* Full width for smaller screens */
+    max-width: 100%;
+  }
+}
+
+
+
+/* Footer */
+@keyframes footerFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+footer {
+  background-color: white;
+  color: #000000;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  animation: footerFadeIn 1s ease-in-out;
+}
+
+video {
+  max-width: 100%; /* Ensures the video doesn't overflow its container */
+  height: auto; /* Maintains aspect ratio */
+  border-radius: 8px; /* Optional: Adds rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow for a polished look */
+}
+
+/* Media Query for Tablets (768px and below) */
+@media (max-width: 768px) {
+  video {
+    width: 100%; /* Makes the video take up the full width of its container */
+    height: auto; /* Keeps the aspect ratio */
+  }
+}
+
+/* Media Query for Mobile (480px and below) */
+@media (max-width: 480px) {
+  video {
+    width: 100%; /* Full width for smaller screens */
+    height: auto; /* Maintains aspect ratio */
+  }
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 1024px) {
+  header h1.custom-font {
+    font-size: 2.5rem;
+  }
+
+  .image-text-pair {
+    flex-direction: column;
+    text-align: center;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .image-text-pair {
+    flex-direction: column;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+
+  .about-us-container h1 {
+    font-size: 2em;
+  }
+
+  .about-us-container p {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about-image {
+    flex-direction: column; /* Stacks items vertically on small screens */
+  }
+
+  .about-image-img {
+    max-width: 80%; /* Makes the image take up more width on small screens */
+  }
+
+  .about-description {
+    max-width: 90%; /* Adjusts the text block width for smaller screens */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    min-height: 60vh; /* Reduces height for smaller screens */
+    font-size: calc(8px + 2vmin); /* Adjusts font size dynamically */
+  }
+}
+
+/* Media Query for Very Small Screens */
+@media screen and (max-width: 480px) {
+  header {
+    min-height: 50vh; /* Further reduces height for very small screens */
+    font-size: calc(6px + 2vmin); /* Scales font size down */
+    padding: 10px; /* Reduces padding for better layout */
+  }
+}
+
+/* Responsive Navigation Blocks */
+@media (max-width: 768px) {
+  .nav-block {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-block {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+}
